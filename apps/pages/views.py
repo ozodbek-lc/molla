@@ -1,4 +1,16 @@
 from django.shortcuts import render
 
-def home_pages_view(request):
+def home_view(request):
     return render(request,'home.html')
+
+def about_view(request):
+    return render(request,'about.html')
+
+def contact_view(request):
+    return render(request, "contact.html")
+
+def coming_soon_view(request):
+    return render(request,'coming-soon.html')
+
+def faq_view(request):
+    return render(request,'faq.html')
