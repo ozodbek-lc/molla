@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from apps.pages.forms import ContactForm
 
 def home_view(request):
     return render(request,'home.html')
@@ -7,7 +8,25 @@ def about_view(request):
     return render(request,'about.html')
 
 def contact_view(request):
-    return render(request, "contact.html")
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save(commit=False)
+            form.result = 1313
+            form.save()
+            return redirect('pages:contact')
+        else:
+            errors = []
+            for key, value in form.errors.items():
+                for error in value:
+                    errors.append(error)
+            context = {
+                "errors": errors
+            }
+            return render(request, 'contact.html', context)
+
+    else:
+        return render(request, 'contact.html')
 
 def coming_soon_view(request):
     return render(request,'coming-soon.html')
