@@ -1,13 +1,13 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
+
 from apps.pages.forms import ContactForm
 
-def home_view(request):
-    return render(request,'home.html')
 
-def about_view(request):
-    return render(request,'about.html')
+def home_page_view(request):
+    return render(request, 'home.html')
 
-def contact_view(request):
+
+def contact_page_view(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
@@ -23,13 +23,7 @@ def contact_view(request):
             context = {
                 "errors": errors
             }
-            return render(request, 'contact.html', context)
+            return render(request, 'pages/contact.html', context)
 
     else:
-        return render(request, 'contact.html')
-
-def coming_soon_view(request):
-    return render(request,'coming-soon.html')
-
-def faq_view(request):
-    return render(request,'faq.html')
+        return render(request, 'pages/contact.html')

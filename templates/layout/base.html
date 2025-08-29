@@ -34,34 +34,34 @@
 </head>
 
 <body>
-    <div class="page-wrapper">
-        {% url 'pages:home' as home_url %}
-        {% if request.path == home_url %}
-            {% include 'layout/header-home.html' %}
-        {% else %}
-            {% include 'layout/header-base.html' %}
-        {% endif %}
+<div class="page-wrapper">
+    {% url 'pages:home' as home_url %}
+    {% if request.path == home_url %}
+        {% include 'layout/header-home.html' %}
+    {% else %}
+        {% include 'layout/header-base.html' %}
+    {% endif %}
 
-        {% block content %}{% endblock %}
+    {% block content %}{% endblock %}
 
-        {% include 'layout/footer.html' %}
-    </div><!-- End .page-wrapper -->
-    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+    {% include 'layout/footer.html' %}
+</div>
+<button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
 
-    {% include 'layout/mobile-menu.html' %}
+{% include 'layout/mobile-menu.html' %}
 
-    {% include 'layout/sign-in-modal.html' %}
+{% include 'layout/sign-in-modal.html' %}
 
-    <!-- Plugins JS File -->
-    <script src="{% static 'assets/js/jquery.min.js' %}"></script>
-    <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'assets/js/jquery.hoverIntent.min.js' %}"></script>
-    <script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
-    <script src="{% static 'assets/js/superfish.min.js' %}"></script>
-    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
-    <!-- Main JS File -->
-    <script src="{% static 'assets/js/main.js' %}"></script>
-    {% block extra_js %}{% endblock %}
+<!-- Plugins JS File -->
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.hoverIntent.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'assets/js/superfish.min.js' %}"></script>
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+<!-- Main JS File -->
+<script src="{% static 'assets/js/main.js' %}"></script>
+{% block extra_js %}{% endblock %}
 </body>
 
 
